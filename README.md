@@ -1,31 +1,25 @@
 # Medical Cross - Mini Katalog Uygulaması
 
-Flutter ile geliştirilmiş basit ve kullanışlı bir medikal ekipman katalog ve sepet yönetimi uygulaması.
+Flutter ile geliştirilmiş, tıbbi ekipmanların listelenmesi, aranması, detaylarının incelenmesi ve sepete eklenmesini sağlayan mobil katalog uygulaması.
 
-## Özellikler
+## Kullanılan Teknolojiler ve Sürümler
 
-- Medikal ürünlerin grid yapısında listelenmesi
-- Ürün ismi ile anlık arama / filtreleme
-- Yeni ürün ekleme, düzenleme ve silme (Geri alma desteğiyle)
+- **Flutter Sürümü:** 3.x (Flutter SDK)
+- **Dart Sürümü:** 3.x
+- **Veritabanı:** `sqflite` (SQLite)
+- **State Management:** `ValueNotifier`
+
+## Uygulama Özellikleri
+
+- Medikal ürünlerin grid görünümünde listelenmesi
+- Ürün adı üzerinden anlık arama ve filtreleme
+- Yeni ürün ekleme, var olan ürünleri güncelleme ve silme
 - Ürün detay ekranı
-- Sepete ürün ekleme, çıkarma ve canlı sepet sayısı gösterimi
-- SQLite (`sqflite`) ile verilerin cihazda kalıcı tutulması
+- Canlı sepet yönetimi ve sepet adedi bildirimi
+- SQLite ile cihazda yerel veri saklama
 
-## Proje Yapısı
+## Çalıştırma Adımları
 
-Proje `lib` klasörü altında modüler bir yapıda geliştirilmiştir:
-
-- **helpers:** Veritabanı yardımcı sınıfları
-- **models:** Veri modelleri
-- **screens:** Uygulama ekranları
-- **services:** Sepet yönetimi ve iş mantığı
-- **widgets:** Ortak UI bileşenleri
-
-## Kullanım
-
-```bash
-# Bağımlılıkları yükle
-flutter pub get
-
-# Projeyi çalıştır
-flutter run
+1. Projeyi klonlayın veya indirin:
+   ```bash
+   git clone [https://github.com/Hira-ileyna/mini_katalog_app.git](https://github.com/Hira-ileyna/mini_katalog_app.git)
