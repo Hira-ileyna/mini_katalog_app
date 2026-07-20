@@ -29,7 +29,6 @@ class _ProductAddScreenState extends State<ProductAddScreen> {
             : _imageUrlController.text,
       );
 
-      // Veri Tabanına Ekle
       await DatabaseHelper.instance.insertProduct(newProduct);
 
       if (!mounted) return;

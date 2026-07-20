@@ -41,20 +41,17 @@ class DatabaseHelper {
     }
   }
 
-  // 1. Tüm Ürünleri Getir
   Future<List<Product>> getProducts() async {
     final db = await DatabaseHelper.instance.database;
     final result = await db.query('products');
     return result.map((json) => Product.fromMap(json)).toList();
   }
 
-  // 2. Ürün Ekle
   Future<int> insertProduct(Product product) async {
     final db = await DatabaseHelper.instance.database;
     return await db.insert('products', product.toMap());
   }
 
-  // 3. Ürün Güncelle
   Future<int> updateProduct(Product product) async {
     final db = await DatabaseHelper.instance.database;
     return await db.update(
@@ -65,7 +62,6 @@ class DatabaseHelper {
     );
   }
 
-  // 4. Ürün Sil
   Future<int> deleteProduct(String id) async {
     final db = await DatabaseHelper.instance.database;
     return await db.delete(

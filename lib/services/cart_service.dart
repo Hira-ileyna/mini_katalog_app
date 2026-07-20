@@ -12,7 +12,6 @@ class CartService extends ValueNotifier<List<CartItem>> {
   CartService._internal() : super([]);
   static final CartService instance = CartService._internal();
 
-  // Sepete Ürün Ekle
   void addToCart(Product product) {
     final existingIndex = value.indexWhere((item) => item.product.id == product.id);
 
@@ -24,7 +23,6 @@ class CartService extends ValueNotifier<List<CartItem>> {
     notifyListeners();
   }
 
-  // Sepetten Ürün Çıkar / Adet Azalt
   void removeFromCart(Product product) {
     final existingIndex = value.indexWhere((item) => item.product.id == product.id);
 
@@ -38,19 +36,16 @@ class CartService extends ValueNotifier<List<CartItem>> {
     notifyListeners();
   }
 
-  // Ürünü Tamamen Sepetten Sil
   void deleteItem(String productId) {
     value.removeWhere((item) => item.product.id == productId);
     notifyListeners();
   }
 
-  // Sepeti Temizle
   void clearCart() {
     value.clear();
     notifyListeners();
   }
 
-  // Toplam Tutar
   double get totalAmount {
     double total = 0.0;
     for (var item in value) {
@@ -59,7 +54,6 @@ class CartService extends ValueNotifier<List<CartItem>> {
     return total;
   }
 
-  // Toplam Ürün Adedi
   int get itemCount {
     int count = 0;
     for (var item in value) {

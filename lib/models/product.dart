@@ -13,7 +13,6 @@ class Product {
     required this.imageUrl,
   });
 
-  // Product nesnesini Veri Tabanına kaydetmek için Map'e dönüştürür
   Map<String, dynamic> toMap() {
     return {
       'id': id,
@@ -24,7 +23,6 @@ class Product {
     };
   }
 
-  // Veri Tabanından gelen Map verisini Product nesnesine dönüştürür
   factory Product.fromMap(Map<String, dynamic> map) {
     return Product(
       id: map['id'],
@@ -36,7 +34,6 @@ class Product {
   }
 }
 
-// Başlangıç için varsayılan ürünler
 List<Product> dummyProducts = [
   Product(
     id: 'm1',

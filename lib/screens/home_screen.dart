@@ -159,7 +159,6 @@ class _HomeScreenState extends State<HomeScreen> {
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () {
-        // 🧹 Ekranın boş bir yerine dokunulduğunda SnackBar'ı anında kapatır
         ScaffoldMessenger.of(context).hideCurrentSnackBar();
       },
       child: Scaffold(
