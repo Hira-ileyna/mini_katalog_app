@@ -1,17 +1,42 @@
-# mini_katalog_app
+# Medical Cross - Tıbbi Ekipman Katalog ve Sepet Uygulaması
 
-A new Flutter project.
+Medical Cross, medikal ekipmanların listelenmesi, detaylı incelenmesi, sepete eklenmesi ve yönetilmesi amacıyla Flutter kullanılarak geliştirilmiş bir mobil katalog uygulamasıdır.
 
-## Getting Started
+## Öne Çıkan Özellikler
 
-This project is a starting point for a Flutter application.
+- Dinamik Katalog: Tıbbi cihaz ve ekipmanların grid yapısında listelenmesi.
+- Arama Özelliği: Ekipman adı üzerinden anlık filtrelenebilir arama çubuğu.
+- Ürün Yönetimi (CRUD): Yeni ürün ekleme, var olan ürün bilgilerini düzenleme ve silme işlemleri.
+- Ürün Detay Sayfası: Ürün görselleri, fiyat ve açıklamalarının yer aldığı özel detay ekranı.
+- Canlı Sepet Yönetimi: App Bar üzerinde anlık ürün sayısı takibi, sepete ürün ekleme, çıkarma ve toplam tutar hesaplama.
+- Yerel Veritabanı: sqflite (SQLite) entegrasyonu ile verilerin cihazda kalıcı saklanması.
 
-A few resources to get you started if this is your first Flutter project:
+## Kullanılan Teknolojiler
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+- Framework: Flutter (Dart)
+- Veritabanı: SQLite (sqflite)
+- State Management: ValueNotifier ve Singleton Tasarım Kalıbı (CartService)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Proje Dizin Yapısı
+
+lib/
+├── helpers/        # Veritabanı yardımcı sınıfları
+├── models/         # Veri modelleri
+├── screens/        # Uygulama ekranları
+├── services/       # İş mantığı ve servisler
+├── widgets/        # Yeniden kullanılabilir bileşenler
+└── main.dart       # Uygulama başlangıç noktası
+
+## Kurulum ve Çalıştırma
+
+1. Projeyi klonlayın:
+   git clone https://github.com/kullanici-adiniz/mini_katalog_app.git
+
+2. Proje dizinine gidin:
+   cd mini_katalog_app
+
+3. Bağımlılıkları yükleyin:
+   flutter pub get
+
+4. Uygulamayı çalıştırın:
+   flutter run
