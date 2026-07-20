@@ -262,26 +262,29 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> _deleteProduct(Product product) async {
-    await DatabaseHelper.instance.deleteProduct(product.id);
-    _loadProductsFromDB();
+  await DatabaseHelper.instance.deleteProduct(product.id);
+  _loadProductsFromDB();
 
-    if (!mounted) return;
-    ScaffoldMessenger.of(context).clearSnackBars();
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('${product.name} silindi.'),
-        duration: const Duration(seconds: 4),
-        action: SnackBarAction(
-          label: 'GERİ AL',
-          textColor: Colors.amber,
-          onPressed: () async {
-            await DatabaseHelper.instance.insertProduct(product);
-            _loadProductsFromDB();
-          },
-        ),
+  if (!mounted) return;
+  
+  // 🧹 Varsa ekrandaki eski SnackBar'ı anında temizler
+  ScaffoldMessenger.of(context).clearSnackBars();
+  
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text('${product.name} silindi.'),
+      duration: const Duration(seconds: 2),
+      action: SnackBarAction(
+        label: 'GERİ AL',
+        textColor: Colors.amber,
+        onPressed: () async {
+          await DatabaseHelper.instance.insertProduct(product);
+          _loadProductsFromDB();
+        },
       ),
-    );
-  }
+    ),
+  );
+}
 
   void _showEditDialog(Product product) {
     final nameController = TextEditingController(text: product.name);
@@ -334,8 +337,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 if (!mounted) return;
                 Navigator.of(ctx).pop();
+
+                // 🧹 Eskisini hemen temizle
+                ScaffoldMessenger.of(context).clearSnackBars();
+
+                // ⏱️ 2 saniyelik yeni bildirimi göster
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Ürün bilgileri güncellendi.')),
+                  const SnackBar(
+                    content: Text('Ürün bilgileri güncellendi.'),
+                    duration: Duration(seconds: 2),
+                  ),
                 );
               }
             },
